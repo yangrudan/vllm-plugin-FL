@@ -5,9 +5,18 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
 from vllm import LLM, SamplingParams
+import os
 import torch
 from vllm.config.compilation import CompilationConfig
 
+# 检查平台
+from vllm.platforms import current_platform
+print(f"🔍 当前平台: {current_platform}")
+print(f"🔍 平台类型: {type(current_platform)}")
+
+# 检查是否使用 FlagGems
+if "USE_FLAGGEMS" in os.environ:
+    print(f"🔍 USE_FLAGGEMS: {os.environ['USE_FLAGGEMS']}")
 
 if __name__ == '__main__':
     prompts = [
@@ -27,3 +36,7 @@ if __name__ == '__main__':
         generated_text = output.outputs[0].text
         print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
 
+    del llm
+    torch.cuda.empty_cache()
+    
+    print("\n✅ 推理完成，资源已清理")
