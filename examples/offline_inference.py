@@ -9,12 +9,12 @@ import os
 import torch
 from vllm.config.compilation import CompilationConfig
 
-# 检查平台
+# Check Platform
 from vllm.platforms import current_platform
-print(f"🔍 当前平台: {current_platform}")
-print(f"🔍 平台类型: {type(current_platform)}")
+print(f"🔍 Current Platform: {current_platform}")
+print(f"🔍 Platform Type: {type(current_platform)}")
 
-# 检查是否使用 FlagGems
+# Check if FlagGems is being used
 if "USE_FLAGGEMS" in os.environ:
     print(f"🔍 USE_FLAGGEMS: {os.environ['USE_FLAGGEMS']}")
 
