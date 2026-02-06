@@ -11,12 +11,12 @@ from vllm.config.compilation import CompilationConfig
 
 # Check Platform
 from vllm.platforms import current_platform
-print(f"🔍 Current Platform: {current_platform}")
-print(f"🔍 Platform Type: {type(current_platform)}")
+print(f"Current Platform: {current_platform}")
+print(f"Platform Type: {type(current_platform)}")
 
 # Check if FlagGems is being used
 if "USE_FLAGGEMS" in os.environ:
-    print(f"🔍 USE_FLAGGEMS: {os.environ['USE_FLAGGEMS']}")
+    print(f"USE_FLAGGEMS: {os.environ['USE_FLAGGEMS']}")
 
 if __name__ == '__main__':
     prompts = [
@@ -39,4 +39,4 @@ if __name__ == '__main__':
     del llm
     torch.cuda.empty_cache()
     
-    print("\n✅ 推理完成，资源已清理")
+    print("\n Reasoning complete, resources cleared.")
